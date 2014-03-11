@@ -165,6 +165,7 @@
             this.remove_btn.TabIndex = 1;
             this.remove_btn.Text = "Elimina stare";
             this.remove_btn.UseVisualStyleBackColor = true;
+            this.remove_btn.Click += new System.EventHandler(this.remove_btn_Click);
             // 
             // add_btn
             // 
@@ -174,6 +175,7 @@
             this.add_btn.TabIndex = 0;
             this.add_btn.Text = "Adauga stare";
             this.add_btn.UseVisualStyleBackColor = true;
+            this.add_btn.Click += new System.EventHandler(this.add_btn_Click);
             // 
             // pictureBox1
             // 
@@ -183,6 +185,7 @@
             this.pictureBox1.Size = new System.Drawing.Size(515, 522);
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseClick);
             // 
             // Form1
             // 
@@ -220,7 +223,7 @@
         private System.Windows.Forms.Button mod_btn;
         private System.Windows.Forms.Button remove_btn;
         private System.Windows.Forms.Button new_btn;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        public System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 
