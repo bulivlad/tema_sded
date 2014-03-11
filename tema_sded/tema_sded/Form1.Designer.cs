@@ -125,7 +125,7 @@
             // 
             this.trim_btn.Location = new System.Drawing.Point(35, 350);
             this.trim_btn.Name = "trim_btn";
-            this.trim_btn.Size = new System.Drawing.Size(103, 23);
+            this.trim_btn.Size = new System.Drawing.Size(114, 23);
             this.trim_btn.TabIndex = 5;
             this.trim_btn.Text = "Aplica alg Trim";
             this.trim_btn.UseVisualStyleBackColor = true;
@@ -134,7 +134,7 @@
             // 
             this.coacc_btn.Location = new System.Drawing.Point(35, 304);
             this.coacc_btn.Name = "coacc_btn";
-            this.coacc_btn.Size = new System.Drawing.Size(103, 23);
+            this.coacc_btn.Size = new System.Drawing.Size(114, 23);
             this.coacc_btn.TabIndex = 4;
             this.coacc_btn.Text = "Aplica alg Co-Acc";
             this.coacc_btn.UseVisualStyleBackColor = true;
@@ -143,7 +143,7 @@
             // 
             this.acc_btn.Location = new System.Drawing.Point(35, 257);
             this.acc_btn.Name = "acc_btn";
-            this.acc_btn.Size = new System.Drawing.Size(103, 23);
+            this.acc_btn.Size = new System.Drawing.Size(114, 23);
             this.acc_btn.TabIndex = 3;
             this.acc_btn.Text = "Aplica alg Acc";
             this.acc_btn.UseVisualStyleBackColor = true;
@@ -152,16 +152,17 @@
             // 
             this.mod_btn.Location = new System.Drawing.Point(35, 211);
             this.mod_btn.Name = "mod_btn";
-            this.mod_btn.Size = new System.Drawing.Size(103, 23);
+            this.mod_btn.Size = new System.Drawing.Size(114, 23);
             this.mod_btn.TabIndex = 2;
-            this.mod_btn.Text = "Modifica stare";
+            this.mod_btn.Text = "Adauga eveniment";
             this.mod_btn.UseVisualStyleBackColor = true;
+            this.mod_btn.Click += new System.EventHandler(this.mod_btn_Click);
             // 
             // remove_btn
             // 
             this.remove_btn.Location = new System.Drawing.Point(35, 166);
             this.remove_btn.Name = "remove_btn";
-            this.remove_btn.Size = new System.Drawing.Size(103, 23);
+            this.remove_btn.Size = new System.Drawing.Size(114, 23);
             this.remove_btn.TabIndex = 1;
             this.remove_btn.Text = "Elimina stare";
             this.remove_btn.UseVisualStyleBackColor = true;
@@ -171,7 +172,7 @@
             // 
             this.add_btn.Location = new System.Drawing.Point(35, 123);
             this.add_btn.Name = "add_btn";
-            this.add_btn.Size = new System.Drawing.Size(103, 23);
+            this.add_btn.Size = new System.Drawing.Size(114, 23);
             this.add_btn.TabIndex = 0;
             this.add_btn.Text = "Adauga stare";
             this.add_btn.UseVisualStyleBackColor = true;
