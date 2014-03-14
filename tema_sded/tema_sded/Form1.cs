@@ -52,6 +52,7 @@ namespace tema_sded
 
                 f = new Form2();
                 f.Show();
+                 
             }
             add_btn.Enabled = true; //activez butonul de adaugare
         }
@@ -81,9 +82,11 @@ namespace tema_sded
 
                         //Cerc[] *c = new Cerc[nr_stari_total];
                         //List<Cerc> c = new List<Cerc>();
+                        marcata = add_form.marcata; //memorez daca e stare marcata sau nemarcata
                         temp = new Cerc("q" + i, (Bitmap)pictureBox1.Image, Color.Black, nr_stari_total); //adaug un cerc(stare)
-                        //c.Add(temp);
                         pictureBox1.Image = temp.deseneaza_stare(e.X - 15, e.Y - 15); //desenez starea in pictureBox1
+                        if (marcata == true) pictureBox1.Image = temp.deseneaza_stare_marcata(e.X - 15, e.Y - 15); //desenez starea in pictureBox1
+                        //c.Add(temp);
                         add_btn_click = false;
                         actualizare_automat();
                     }
@@ -93,10 +96,8 @@ namespace tema_sded
             }
             else if(remove_btn_click == true) //daca a fost apasat butonul de stergere !!!!!!!! trebuie modificat !!!!!!!!!!
             {
-                if (remove_stare_form.ok == 1)
-                {
-
-                }
+                temp = new Cerc("q", (Bitmap)pictureBox1.Image, SystemColors.Control, nr_stari_total);
+                //pictureBox1.Image = temp.sterge_stare(e.X - 60, e.Y - 60);
                 remove_btn_click = false;
             }
         }
@@ -110,7 +111,6 @@ namespace tema_sded
             add_btn_click = true; //am apasat butonul de add
             g = new add_form(i);
             g.Show();
-            marcata = add_form.marcata; //memorez daca e stare marcata sau nemarcata
         }
 
         private void remove_btn_Click(object sender, EventArgs e)
@@ -130,9 +130,9 @@ namespace tema_sded
         private void actualizare_automat()
         {        
             Point punct;
-            punct = Cerc.poz_stari[i-1];
-            Matrice temp = new Matrice("q" + add_form.k, add_form.marcata, punct);
-            automat[i-1] = temp;
+            punct = Cerc.poz_stari[i-1]; //iau pozitia starii i-1
+            Matrice temp = new Matrice("q" + add_form.k, add_form.marcata, punct); //obiectul cerc
+            automat[i-1] = temp; //actualizez matricea cu automatul
         }
     }
 }

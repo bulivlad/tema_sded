@@ -18,9 +18,8 @@ namespace tema_sded
         }
         public static int ok=0;
         public static Point p;
-        public static int i = 0;
         private void button_OK_Click(object sender, EventArgs e)
-        {
+        {int i = 0;
 
             if (textBox1.Text == "") MessageBox.Show("Introduceti numele starii!", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
               else{ 

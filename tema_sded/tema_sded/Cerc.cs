@@ -50,10 +50,24 @@ namespace tema_sded
 
             SolidBrush b = new SolidBrush(col);
 
-            e.FillRectangle(b, p.X-60,p.Y-60, raza + 60, raza + 60); //desenez un dreptunghi umplut peste starea care trebuie stearsa
+            e.FillRectangle(b, p.X-60, p.Y-60, raza + 60, raza + 60); //desenez un dreptunghi umplut peste starea care trebuie stearsa
 
             return bmp; //returnez imaginea rezultata dupa stergere
         }
+
+        public Bitmap deseneaza_stare_marcata(int x, int y) //pentru desenat stari noi
+        {
+            Graphics e = Graphics.FromImage(bmp); //creez grafic e care deseaza peste imaginea bmp din pictureBox1
+
+            Pen w = new Pen(col, 1);
+            SolidBrush b = new SolidBrush(col);
+            Font f = new Font("Microsoft Sans Serif", 8);
+
+            e.DrawEllipse(w, x, y, raza+20, raza+20); //desenez cercul
+
+            return bmp; //returnez imaginea dupa ce am desenat
+        }
+
 
         public Point get_point ()
         {
