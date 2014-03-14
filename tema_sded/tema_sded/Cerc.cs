@@ -26,7 +26,7 @@ namespace tema_sded
             if(i==0) poz_stari = new Point[nr_stari]; //verific daca i=0 ca sa initializez doar prima data vectorul pentru punctele starilor
         }
 
-        public Bitmap draw_Click(int x, int y) //pentru desenat stari noi
+        public Bitmap deseneaza_stare(int x, int y) //pentru desenat stari noi
         {
             Graphics e = Graphics.FromImage(bmp); //creez grafic e care deseaza peste imaginea bmp din pictureBox1
 
@@ -44,7 +44,7 @@ namespace tema_sded
             return bmp; //returnez imaginea dupa ce am desenat
         }
 
-        public Bitmap erase_Click(int x, int y) //pt stergerea de stari !!!! trebuie modificat !!!!
+        public Bitmap sterge_stare(int x, int y) //pt stergerea de stari !!!! trebuie modificat !!!!
         {
             Graphics e = Graphics.FromImage(bmp); //creez grafic e care deseaza peste imaginea bmp din pictureBox1
 
