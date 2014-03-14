@@ -13,16 +13,16 @@ namespace tema_sded
     public partial class add_form : Form
     {
 
-        private static int nr_stari_marcate;
+        private static int nr_stari_marcate=1;
 
         private static int i = 0;
-        public static int k = 0;
+        public static bool k = false;
 
 
         public add_form(int w)
         {
             InitializeComponent();
-            if(i==0) Form1.automat = new Matrice[Form2.nr_stari_total];
+            if(i==0) Form1.automat = new Matrice[Form2.nr_stari_total]; //initializez doar prima data automatul
             if (nr_stari_marcate > Form2.nr_stari_marcate) checkBox1.Enabled = false; //daca am depasit numarul de stari marcate facem checkbox inactiv
         }
 
@@ -37,7 +37,7 @@ namespace tema_sded
             }
             else if (checkBox1.Checked) 
             {
-                k++;
+                k=true;
                 marcata = true; 
                 this.Close(); 
                 nr_stari_marcate++; 
