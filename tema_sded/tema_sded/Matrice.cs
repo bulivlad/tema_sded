@@ -23,20 +23,20 @@ namespace tema_sded
             pozitie = p;
         }
 
-        bool get_tip_stare()
+      public  bool get_tip_stare()
         {
             return this.tip_stare;
         }
 
-        string get_eveniment()
+      public  string get_eveniment()
         {
             return this.eveniment;
         }
 
-        Point get_point()
+       public Point get_point()
         {
             return this.pozitie;
         }
-
+      
     }
 }
