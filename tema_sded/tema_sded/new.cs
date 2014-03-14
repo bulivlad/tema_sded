@@ -17,8 +17,8 @@ namespace tema_sded
             InitializeComponent();
         }
 
-        public int nr_stari_total;
-        public int nr_stari_marcate;
+        public static int nr_stari_total;
+        public static int nr_stari_marcate;
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {

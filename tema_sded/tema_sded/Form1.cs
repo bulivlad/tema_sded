@@ -39,7 +39,7 @@ namespace tema_sded
         public Bitmap bmp; //imaginea din pictureBox1
 
         Form2 f;
-        static int x = 0;
+        private static int x = 0;
         private void new_btn_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Sigur doriti sa creati un automat nou?", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
@@ -61,14 +61,15 @@ namespace tema_sded
         private bool add_btn_click = false;
         private bool remove_btn_click = false;
         add_form g;
+        Cerc temp;
 
         private void pictureBox1_MouseClick(object sender, MouseEventArgs e)
         {
             if(add_btn_click == true) //verific daca butonul de add a fost apasat
             {
-                ok_add = g.apasat; //retin daca a fost apasat butonul ok de la stare marcata/nemarcata
-                nr_stari_total = f.nr_stari_total;
-                nr_stari_marcate = f.nr_stari_marcate;
+                ok_add = add_form.apasat; //retin daca a fost apasat butonul ok de la stare marcata/nemarcata
+                nr_stari_total =Form2.nr_stari_total;
+                nr_stari_marcate = Form2.nr_stari_marcate;
                 
                 if (i< nr_stari_total) //verific sa nu fi depasit numarul maxim de stari totale
                 {
@@ -80,10 +81,11 @@ namespace tema_sded
 
                         //Cerc[] *c = new Cerc[nr_stari_total];
                         //List<Cerc> c = new List<Cerc>();
-                        Cerc temp = new Cerc("q" + i, (Bitmap)pictureBox1.Image, Color.Black, nr_stari_total); //adaug un cerc(stare)
+                        temp = new Cerc("q" + i, (Bitmap)pictureBox1.Image, Color.Black, nr_stari_total); //adaug un cerc(stare)
                         //c.Add(temp);
                         pictureBox1.Image = temp.deseneaza_stare(e.X - 15, e.Y - 15); //desenez starea in pictureBox1
-                        add_btn_click = false; 
+                        add_btn_click = false;
+                        actualizare_automat();
                     }
                 }
                 else add_btn.Enabled = false; //daca am atins numarul maxim de stari deactivez butonul de add
@@ -91,8 +93,8 @@ namespace tema_sded
             }
             else if(remove_btn_click == true) //daca a fost apasat butonul de stergere !!!!!!!! trebuie modificat !!!!!!!!!!
             {
-                Cerc c = new Cerc("q", (Bitmap)pictureBox1.Image, SystemColors.Control, nr_stari_total);
-                pictureBox1.Image = c.sterge_stare(e.X - 60, e.Y - 60);
+                temp = new Cerc("q", (Bitmap)pictureBox1.Image, SystemColors.Control, nr_stari_total);
+                pictureBox1.Image = temp.sterge_stare(e.X - 60, e.Y - 60);
                 remove_btn_click = false;
             }
         }
@@ -104,9 +106,9 @@ namespace tema_sded
         private void add_btn_Click(object sender, EventArgs e)
         {
             add_btn_click = true; //am apasat butonul de add
-            g = new add_form();
+            g = new add_form(i);
             g.Show();
-            marcata = g.marcata; //memorez daca e stare marcata sau nemarcata
+            marcata = add_form.marcata; //memorez daca e stare marcata sau nemarcata
         }
 
         private void remove_btn_Click(object sender, EventArgs e)
@@ -117,6 +119,16 @@ namespace tema_sded
         private void mod_btn_Click(object sender, EventArgs e)
         {
 
+        }
+
+        public static Matrice[] automat;
+        
+        private void actualizare_automat()
+        {        
+            Point punct;
+            punct = Cerc.poz_stari[i-1];
+            Matrice temp = new Matrice("q" + add_form.k, add_form.marcata, punct);
+            automat[i-1] = temp;
         }
     }
 }

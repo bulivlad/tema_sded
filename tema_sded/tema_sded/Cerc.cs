@@ -14,7 +14,7 @@ namespace tema_sded
         private string desc;
         private Bitmap bmp;
         private Color col;
-        private static Point[] poz_stari;
+        public static Point[] poz_stari;
         private static int i=0;
         public Cerc() { }
         
@@ -53,6 +53,11 @@ namespace tema_sded
             e.FillRectangle(b, x, y, raza + 60, raza + 60); //desenez un dreptunghi umplut peste starea care trebuie stearsa
 
             return bmp; //returnez imaginea rezultata dupa stergere
+        }
+
+        public Point get_point ()
+        {
+            return poz_stari[i];
         }
 
     }
